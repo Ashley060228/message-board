@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言列表</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .message {
+            background: #f8f9fa;
+            border-left: 4px solid #4285f4;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 0 4px 4px 0;
+        }
+        .name {
+            font-weight: bold;
+            color: #1a73e8;
+        }
+        .time {
+            color: #5f6368;
+            font-size: 0.9em;
+            margin-left: 10px;
+        }
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            .message { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <h1>📜 所有留言</h1>
+    
+    {% for name, message, timestamp in messages %}
+    <div class="message">
+        <span class="name">{{ name }}</span>
+        <span class="time">{{ timestamp }}</span>
+        <p>{{ message }}</p>
+    </div>
+    {% endfor %}
+ 
+    <p><a href="/">← 返回留言</a></p>
+</body>
+</html>
